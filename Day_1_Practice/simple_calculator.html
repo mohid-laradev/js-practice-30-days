@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+
+    <p>Please enter two numbers to perform calculations:</p>
+
+    <input id="number1" type="number" placeholder="First number">
+    <input id="number2" type="number" placeholder="Second number">
+    
+    <button onclick="add()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <button onclick="modulus()">Modulus</button>
+    <button onclick="clear()">Clear</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function add() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 + num2; 
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+
+        function subtract() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 - num2;
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+
+        function multiply() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 * num2;
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+
+        function divide() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 / num2;
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+
+        function modulus() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 % num2;
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+
+        function clear() {
+            document.getElementById('number1').value = '';
+            document.getElementById('number2').value = '';
+            document.getElementById('result').textContent = '';
+        }
+
+    </script>
+
+
+    
+
+
+
+
+    
+    
+</body>
+</html>

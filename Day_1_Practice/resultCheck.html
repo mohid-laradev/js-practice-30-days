@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result check</title>
+
+</head>
+<body>
+
+    <h1>
+        This is the result check page. Please open the console to see the results of your code from the previous exercises.
+    </h1>
+
+    <input type="number"  name="marks" id="marks" placeholder="Enter your marks">
+    <button onclick="checkMarks()">Check Marks</button>
+    <p id="result"></p>
+
+
+    <script>
+        const checkMarks = () => {
+            const marks = document.getElementById('marks').value;
+            const resultElement = document.getElementById('result');
+
+            if(marks === '') {
+                alert('Please enter your marks.');
+                return;
+            }
+
+            
+            if(marks >= 90){
+                console.log('Grade: A');
+                resultElement.textContent = 'Grade: A';
+            } else if(marks >= 80){
+                console.log('Grade: B');
+                resultElement.textContent = 'Grade: B';
+            } else if(marks >= 70){
+                console.log('Grade: C');
+                resultElement.textContent = 'Grade: C';
+            } else if(marks >= 60){
+                console.log('Grade: D');
+                resultElement.textContent = 'Grade: D';
+            } else {
+                console.log('Grade: F');
+                resultElement.textContent = 'Grade: F';
+            }
+
+
+        }
+    </script>
+</body>
+</html>

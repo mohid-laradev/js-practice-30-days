@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beautiful Age Calculator</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <button id="themeToggle">Dark Mode</button>
+      <h1>🎂 Age Calculator</h1>
+
+      <p class="subtitle">
+        Enter your birth year to calculate your age
+      </p>
+
+      <div class="input-box">
+        <input
+          type="number"
+          id="inputYear"
+          placeholder="Enter birth year"
+        >
+
+        <button onclick="calculateAge()">
+          Calculate
+        </button>
+      </div>
+
+      <div id="resultBox" class="hidden">
+        <h2 id="result"></h2>
+        <p id="category"></p>
+      </div>
+
+      <div class="footer">
+        Current Year:
+        <span id="currentYear"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

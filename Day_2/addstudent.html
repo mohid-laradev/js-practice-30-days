@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student Practice</title>
+</head>
+<body>
+
+    <input type="text" name="search" id="search" placeholder="Search Student">
+    <button onclick="searchStudents()">Search</button>
+
+    <h1>Student Management</h1>
+
+    <input type="text" name="name" id="name" placeholder="Student Name">
+    <input type="number" name="age" id="age" placeholder="Student Age">
+    <button onclick="addStudent()">Add Student</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="studentList">
+            <!-- Student list will be rendered here -->
+        </tbody>
+    </table>
+
+
+
+
+    <script>
+
+              let students = JSON.parse(localStorage.getItem('students')) || [];
+
+        function addStudent() {
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        let list = document.getElementById("studentList");
+
+        if (name === '') {
+            alert('Please enter the student name.');
+            return;
+        }
+
+        // add student to array
+        students.push({ name, age });
+
+        console.log(students);
+
+        // save to localStorage
+        localStorage.setItem('students', JSON.stringify(students));
+
+        // clear input
+        document.getElementById('name').value = "";
+        document.getElementById('age').value = "";
+
+        // render list
+        renderStudents();
+
+        alert(`${name} has been added to the list.`);
+    }
+
+    // optional: load existing students on page load
+    window.onload = function () {
+        let list = document.getElementById("studentList");
+        renderStudents();
+    }
+
+
+        function studentList() {
+
+        let list = document.getElementById("studentList");
+
+        list.innerHTML = "";    
+
+            students.map((student,index) => {
+
+            list.innerHTML += `<tr>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>
+                    <button onclick="deleteStudent(${index})">
+                        Delete
+                    </button>
+                </td>
+            </tr>`;
+
+        });
+        }
+
+            function deleteStudent(index) {
+                students.splice(index, 1);
+                localStorage.setItem('students', JSON.stringify(students));
+                studentList();
+            }
+
+
+
+
+     function searchStudents() {
+
+    let searchTerm = document
+        .getElementById('search')
+        .value
+        .toLowerCase();
+
+    let results = students.filter(student =>
+        student.name.toLowerCase().includes(searchTerm)
+    );
+
+        renderStudents(results);
+    }
+
+
+    function renderStudents(data = students) {
+
+    let list = document.getElementById("studentList");
+
+    list.innerHTML = "";
+
+    data.map((student, index) => {
+
+        list.innerHTML += `
+            <tr>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>
+                    <button onclick="deleteStudent(${index})">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

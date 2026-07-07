@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 Exercise</title>
+</head>
+<body>
+
+    <input id="search" placeholder="Search User">
+    <button onclick="searchUsers()">Search</button>
+    <h1>User Add (Useage of array and its methods)</h1>
+
+    <p>Please enter a username to add to the list:</p>
+
+    <input type="text" id="usernameInput" placeholder="Enter username">
+
+    <button onclick="addUser()">Add User</button>
+    <button onclick="listUsers()">List Users</button>
+    <button onclick="clearUsers()">Clear Users</button>
+
+    <ol id="userList"></ol>
+
+     <script>
+       let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        function addUser() {
+        const username = document.getElementById('usernameInput').value;
+        let list = document.getElementById("userList");
+
+        if (username === '') {
+            alert('Please enter your username.');
+            return;
+        }
+
+        // add user to array
+        users.push(username);
+
+        // save to localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // clear input
+        document.getElementById('usernameInput').value = "";
+
+        // render list
+        list.innerHTML = "";
+
+        users.map((user) => {
+            console.log(user);
+            list.innerHTML += `<li>${user}</li>`;
+        });
+
+        alert(`${username} has been added to the list.`);
+    }
+
+    // optional: load existing users on page load
+    window.onload = function () {
+        let list = document.getElementById("userList");
+        list.innerHTML = "";
+
+        users.forEach((user) => {
+            list.innerHTML += `<li>${user}</li>`;
+        });
+    }
+        // let users = [];
+
+        function listUsers() {
+
+        let list = document.getElementById("userList");
+
+        list.innerHTML = "";    
+
+        users.map((user,index) => {
+
+            list.innerHTML += `<li>
+                ${user}
+                 <button onclick="deleteUser(${index})">
+          Delete
+        </button>
+                </li>`;
+
+        });
+        }
+
+        // function addUser() {
+
+        // let username = document.getElementById("usernameInput").value;
+
+        // users.push(username);
+
+        // listUsers();
+        // }
+
+
+        function clearUsers() {
+            document.getElementById("usernameInput").value = '';
+            users = [];
+            listUsers();
+        }
+
+
+        function deleteUser(index) {
+            users.splice(index, 1);
+            localStorage.setItem('users', JSON.stringify(users));
+            listUsers();
+        }
+
+
+
+        function searchUsers() {
+            let keyword = document.getElementById('search').value;
+            //  search = ali
+
+            let filteredUsers = users.filter(user => 
+            user.toLowerCase().includes(keyword.toLowerCase()));
+
+            // ["ali", "salim", "aliya"] => ["ali", "salim", "aliya"]
+            // ALI ------ali search => ali
+
+            let list = document.getElementById("userList");
+
+            // clear the list before rendering search results
+
+            list.innerHTML = "";
+
+            filteredUsers.forEach((user) => {
+                list.innerHTML += `<li>${user}</li>`;
+            });
+
+        }
+
+
+        let products = [
+        { id: 1, name: "Laptop" },
+        { id: 2, name: "Mobile" },
+        ];
+
+        let product = products.find((p) => p.id === 2);
+
+        console.log(product);
+
+     </script>   
+</body>
+</html>

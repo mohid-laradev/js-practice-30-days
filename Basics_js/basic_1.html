@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Basics of Javascript</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Topic</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Comments, Variables and Data Types,typeOf, Operators,assign and reassign variable, </td>
+                <td><a href="#">All done in console</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Even or Odd</td>
+                <td><a href="evenodd.html">Click Here</a></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Result Check</td>
+                <td><a href="resultCheck.html">Click Here</a></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Age Calculator</td>
+                <td><a href="index.html">Click Here</a></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    
+
+    <h2>Practive for these concepts</h2>
+
+    
+
+
+</body>
+</html>
+
+<script>
+    // this is a single line comment
+    console.log("Hello, this is a console log message.");
+
+    /*
+        This is a multi-line comment.
+        You can write multiple lines of comments here.
+    */
+
+   hello = "Hello, World!";
+   console.log(hello);
+
+//    data type
+//    1. string
+//    2. number
+//    3. boolean
+//    4. null
+//    5. undefined
+
+   let name = "John Doe"; // string
+   let age = 30; // number
+   let isStudent = true; // boolean
+   let address = null; // null
+   let phoneNumber; // undefined
+
+  console.log("Name:", name);
+  console.log("Age:", age);
+  console.log("Is Student:", isStudent);
+  console.log("Address:", address);
+  console.log("Phone Number:", phoneNumber);
+
+  console.log("type of name:", typeof name);
+  console.log("type of age:", typeof age);
+  console.log("type of isStudent:", typeof isStudent);
+  console.log("type of address:", typeof address);
+  console.log("type of phoneNumber:", typeof phoneNumber);
+
+//    Operators
+//    1. Arithmetic Operators
+//    2. Assignment Operators
+//    3. Comparison Operators
+//    4. Logical Operators
+//    5. Bitwise Operators
+//    6. String Operators
+//    7. Conditional (Ternary) Operator
+
+//    Arithmetic Operators
+//    1. Addition: +
+//    2. Subtraction: -
+//    3. Multiplication: *
+//    4. Division: /
+//    5. Modulus: %
+
+let a = 10;
+let b = 3;
+
+console.log("Addition:", a + b);
+console.log("Subtraction:", a - b);
+console.log("Multiplication:", a * b);
+console.log("Division:", a / b);
+console.log("Modulus:", a % b);
+
+
+// Practice for variables and data types
+
+const Id = 201022;
+let studentName = "Ali";
+let studentClass = "10th";
+let studentEmail = "HqPw1@example.com";
+let studentAge = 20;
+let studentKanjarha = true;
+
+// method to show data in table format in console
+console.table([Id, studentName, studentClass, studentEmail, studentAge, studentKanjarha]);
+
+</script>
